@@ -14,10 +14,10 @@ RUN curl https://download.microsoft.com/download/d/e/b/deb7b081-a3dc-47ea-8f2a-4
 
 RUN unzip sqlpackage.linux.zip -d /opt/sqlpackage
 
-RUN echo "export PATH=\"\$PATH:opt/sqlpackage\"" >> ~/.bashrc
+RUN rm sqlpackage.linux.zip
 
 RUN chmod a+x opt/sqlpackage/sqlpackage
 
-RUN source ~/.bashrc
+RUN ln -s /opt/sqlpackage/sqlpackage /usr/local/bin/sqlpackage
 
 CMD /opt/sqlpackage/sqlpackage
