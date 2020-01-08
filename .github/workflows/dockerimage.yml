@@ -11,4 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag sqlpackage
+      run: docker build . --file Dockerfile --tag sqlpackage:latest
+    - name: Login to Docker
+      run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Push to Docker Hub
+      run: docker push jeffpapp/sqlpackage:latest
