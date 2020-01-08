@@ -4,6 +4,8 @@ RUN apt-get update
 
 RUN apt-get install -y curl
 
+RUN apt-get install -y unzip
+
 RUN apt-get install libunwind8
 
 RUN apt-get install libicu60
